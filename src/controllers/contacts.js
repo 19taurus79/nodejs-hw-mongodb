@@ -8,7 +8,10 @@ import {
 } from '../services/contacts.js';
 
 export const getContactsController = async (req, res) => {
-  const contacts = await getContacts();
+  const contacts = await getContacts({
+    page: req.validatedQuery.page,
+    perPage: req.validatedQuery.perPage,
+  });
   res.status(200).json({
     status: 200,
     message: 'Successfully found contacts!',
