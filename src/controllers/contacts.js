@@ -11,6 +11,8 @@ export const getContactsController = async (req, res) => {
   const contacts = await getContacts({
     page: req.validatedQuery.page,
     perPage: req.validatedQuery.perPage,
+    sortBy: req.validatedQuery.sortBy,
+    sortOrder: req.validatedQuery.sortOrder,
   });
   res.status(200).json({
     status: 200,
