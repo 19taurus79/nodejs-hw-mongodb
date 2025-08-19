@@ -23,8 +23,8 @@ const sessionSchema = new Schema(
     },
   },
   {
-    timestamps: false,
+    timestamps: true,
     versionKey: false,
   },
 );
-export const Session = model('Contacts', sessionSchema);
+export const Session = model('Session', sessionSchema);
