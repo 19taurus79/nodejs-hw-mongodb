@@ -15,7 +15,9 @@ import {
 } from '../validation/contacts.js';
 import { isValidId } from '../middlewares/isValidId.js';
 import { validateQuery } from '../middlewares/validateQueryMiddleware.js';
+import { authenticate } from '../middlewares/authenticate.js';
 const router = Router();
+router.use(authenticate);
 router.get(
   '/',
   validateQuery(getContactsQueryParamsSchema),
