@@ -6,6 +6,9 @@ import {
   getContacts,
   updateContact,
 } from '../services/contacts.js';
+import { saveFileToUploadDir } from '../utils/saveFileToUploadDir.js';
+import { getEnvVar } from '../utils/getEnvVar.js';
+import { saveFileToCloudinary } from '../utils/saveFileToCloudinary.js';
 
 export const getContactsController = async (req, res) => {
   const contacts = await getContacts({
@@ -40,6 +43,14 @@ export const getContactByIdController = async (req, res, next) => {
 export const createContactController = async (req, res, next) => {
   const data = req.body;
   data.userId = req.user._id;
+  const photo = req.file;
+  if (photo) {
+    if (getEnvVar('ENABLE_CLOUDINARY') === 'true') {
+      data.photo = await saveFileToCloudinary(photo);
+    } else {
+      data.photo = await saveFileToUploadDir(photo);
+    }
+  }
   const contact = await createContact(data);
   res.status(201).json({
     status: 201,
@@ -50,16 +61,28 @@ export const createContactController = async (req, res, next) => {
 
 export const updateContactController = async (req, res, next) => {
   const { contactId } = req.params;
+  const photo = req.file;
   const userId = req.user._id;
-  const updatedContact = await updateContact(contactId, req.body, userId);
-  if (!updateContact) {
+  let photoUrl;
+  if (photo) {
+    if (getEnvVar('ENABLE_CLOUDINARY') === 'true') {
+      photoUrl = await saveFileToCloudinary(photo);
+    } else {
+      photoUrl = await saveFileToUploadDir(photo);
+    }
+  }
+  const result = await updateContact(contactId, userId, {
+    ...req.body,
+    photo: photoUrl,
+  });
+  if (!result) {
     next(createHttpError(404, 'Contact not found'));
     return;
   }
   res.status(200).json({
     status: 200,
     message: 'Successfully patched a contact!',
-    data: updatedContact,
+    data: result,
   });
 };
 
