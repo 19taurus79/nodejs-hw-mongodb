@@ -11,6 +11,7 @@ tags:
     description: Operations about contacts
   # теги, що ви будете використовувати
 servers:
+  - url: https://nodejs-hw-mongodb-98pv.onrender.com
   - url: http://localhost:3000
 paths:
   /contacts:

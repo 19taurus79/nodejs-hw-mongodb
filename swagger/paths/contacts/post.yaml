@@ -14,7 +14,7 @@ requestBody:
           - name
           - phoneNumber
           - contactType
-          - userId
+          # - userId
         properties:
           name:
             type: string
@@ -25,9 +25,9 @@ requestBody:
           contactType:
             type: string
             example: work
-          userId:
-            type: string
-            example: 62e8f9f5e4bc4b0015f3c1a3
+          # userId:
+          #   type: string
+          #   example: 62e8f9f5e4bc4b0015f3c1a3
 responses:
   '201':
     description: Successful operation

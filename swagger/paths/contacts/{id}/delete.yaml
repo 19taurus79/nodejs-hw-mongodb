@@ -14,5 +14,5 @@ parameters:
       type: string
       example: 62e8f9f5e4bc4b0015f3c1a3
 responses:
-  '200':
+  '204':
     description: Successful operation

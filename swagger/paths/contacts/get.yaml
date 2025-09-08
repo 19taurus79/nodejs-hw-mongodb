@@ -14,7 +14,7 @@ parameters:
     schema:
       type: integer
       example: 1
-  - name: perpage
+  - name: perPage
     in: query
     description: Number of contacts per page
     required: false
@@ -35,13 +35,13 @@ parameters:
     schema:
       type: string
       example: asc
-  - name: userId
-    in: query
-    description: User ID
-    required: false
-    schema:
-      type: string
-      example: 62e8f9f5e4bc4b0015f3c1a3
+  # - name: userId
+  #   in: query
+  #   description: User ID
+  #   required: true
+  #   schema:
+  #     type: string
+  #     example: 62e8f9f5e4bc4b0015f3c1a3
 responses:
   '200':
     description: Successful operation
@@ -65,7 +65,7 @@ responses:
               required:
                 - contacts
                 - page
-                - perpage
+                - perPage
                 - totalItems
                 - totalPages
                 - hasNextPage
@@ -78,7 +78,7 @@ responses:
                 page:
                   type: integer
                   example: 1
-                perpage:
+                perPage:
                   type: integer
                   example: 10
                 totalItems:
