@@ -174,7 +174,8 @@
                 "required": [
                   "name",
                   "phoneNumber",
-                  "contactType"
+                  "contactType",
+                  "userId"
                 ],
                 "properties": {
                   "name": {
@@ -187,7 +188,27 @@
                   },
                   "contactType": {
                     "type": "string",
-                    "example": "work"
+                    "enum": [
+                      "work",
+                      "home",
+                      "personal"
+                    ]
+                  },
+                  "userId": {
+                    "type": "string",
+                    "example": "62e8f9f5e4bc4b0015f3c1a3"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "mail@mail.com"
+                  },
+                  "isFavorite": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "photo": {
+                    "type": "string",
+                    "example": "https://example.com/photo.jpg"
                   }
                 }
               }
@@ -319,9 +340,7 @@
               "schema": {
                 "type": "object",
                 "required": [
-                  "name",
-                  "phoneNumber",
-                  "contactType"
+                  "userId"
                 ],
                 "properties": {
                   "name": {
@@ -334,7 +353,27 @@
                   },
                   "contactType": {
                     "type": "string",
-                    "example": "personal"
+                    "enum": [
+                      "work",
+                      "home",
+                      "personal"
+                    ]
+                  },
+                  "userId": {
+                    "type": "string",
+                    "example": "62e8f9f5e4bc4b0015f3c1a3"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "6Vt2J@example.com"
+                  },
+                  "isFavorite": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "photo": {
+                    "type": "string",
+                    "example": "https://example.com/photo.jpg"
                   }
                 }
               }
