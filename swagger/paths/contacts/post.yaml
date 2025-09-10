@@ -25,9 +25,9 @@ requestBody:
           contactType:
             type: string
             enum: ['work', 'home', 'personal']
-          userId:
-            type: string
-            example: 62e8f9f5e4bc4b0015f3c1a3
+          # userId:
+          #   type: string
+          #   example: 62e8f9f5e4bc4b0015f3c1a3
           email:
             type: string
             example: mail@mail.com
@@ -35,7 +35,7 @@ requestBody:
             type: boolean
             example: true
           photo:
-            type: string
+            type: binary
             example: https://example.com/photo.jpg
 responses:
   '201':
