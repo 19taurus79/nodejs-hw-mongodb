@@ -41,7 +41,8 @@ requestBody:
             type: boolean
             example: true
           photo:
-            type: binary
+            type: string
+            format: binary
             example: https://example.com/photo.jpg
 responses:
   '201':
