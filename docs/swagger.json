@@ -194,10 +194,6 @@
                       "personal"
                     ]
                   },
-                  "userId": {
-                    "type": "string",
-                    "example": "62e8f9f5e4bc4b0015f3c1a3"
-                  },
                   "email": {
                     "type": "string",
                     "example": "mail@mail.com"
@@ -207,7 +203,7 @@
                     "example": true
                   },
                   "photo": {
-                    "type": "string",
+                    "type": "binary",
                     "example": "https://example.com/photo.jpg"
                   }
                 }
@@ -359,10 +355,6 @@
                       "personal"
                     ]
                   },
-                  "userId": {
-                    "type": "string",
-                    "example": "62e8f9f5e4bc4b0015f3c1a3"
-                  },
                   "email": {
                     "type": "string",
                     "example": "6Vt2J@example.com"
@@ -372,7 +364,7 @@
                     "example": true
                   },
                   "photo": {
-                    "type": "string",
+                    "type": "binary",
                     "example": "https://example.com/photo.jpg"
                   }
                 }
